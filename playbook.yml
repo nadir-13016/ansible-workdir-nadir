@@ -1,48 +1,48 @@
-# ---
-# # Un playbook commence généralement par '---', ce qui indique le début d'un document YAML.
-# # Nom du playbook : Une description courte et significative de ce que fait le playbook.
-# - name: playbook installation gcc-c++/node/gatsby 
-#   hosts: ec2
-#   become: true 
-#   tasks:
-#     # Description de la tâche.
-#     - name: install gcc-c++ 
-#       ansible.builtin.yum: 
-#         name: 
-#           - gcc-c++
-#           - make
-#         state: present
-#     # Une autre tâche.
-#     - name: install nodejs 
-#       ansible.builtin.yum: 
-#         name: nodejs
-#         state: present
-#     - name: install gatsby-cli 
-#       ansible.builtin.yum: 
-#         name: gatsby-cli
-#         state: present
-        
-- name: install gatsby
-
+---
+# Un playbook commence généralement par '---', ce qui indique le début d'un document YAML.
+# Nom du playbook : Une description courte et significative de ce que fait le playbook.
+- name: playbook installation gcc-c++/node/gatsby 
   hosts: ec2
-
-  become: true # become superuser 
-
+  become: true 
   tasks:
-    - name: install dependencies for Node.js
-      ansible.builtin.yum:
+    # Description de la tâche.
+    - name: install gcc-c++ 
+      ansible.builtin.yum: 
         name: 
           - gcc-c++
           - make
         state: present
-
-    - name: install Node.js and npm
-      ansible.builtin.yum:
+    # Une autre tâche.
+    - name: install nodejs 
+      ansible.builtin.yum: 
         name: nodejs
         state: present
-        enablerepo: epel
-
-    - name: install gatsby-cli
-      ansible.builtin.npm:
+    - name: install gatsby-cli 
+      ansible.builtin.yum: 
         name: gatsby-cli
-        global: yes
+        state: present
+        
+# - name: install gatsby
+
+#   hosts: ec2
+
+#   become: true # become superuser 
+
+#   tasks:
+#     - name: install dependencies for Node.js
+#       ansible.builtin.yum:
+#         name: 
+#           - gcc-c++
+#           - make
+#         state: present
+
+#     - name: install Node.js and npm
+#       ansible.builtin.yum:
+#         name: nodejs
+#         state: present
+#         enablerepo: epel
+
+#     - name: install gatsby-cli
+#       ansible.builtin.npm:
+#         name: gatsby-cli
+#         global: yes

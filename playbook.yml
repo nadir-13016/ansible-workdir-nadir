@@ -18,7 +18,7 @@
         name: nodejs
         state: present
     - name: install gatsby-cli 
-      ansible.builtin.yum: 
+      ansible.builtin.npm: 
         name: gatsby-cli
         state: present
         
